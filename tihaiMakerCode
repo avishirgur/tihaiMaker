@@ -1,0 +1,30 @@
+import math
+def tihaiCalc(numB, numJ, phrase):
+    #Check
+    if len(phrase.split()) != numJ:
+        print('Phrase must have the same number of syllables as jati count!')
+    else:
+        #Syllable display
+        pC = math.floor((numB+1)/3)
+        pR = (numB+1) % 3
+        pauseD = ' '.join([str(n+1) for n in range(numJ-1)])
+        pauseR = ' '.join([str(n+1) for n in range(pR*int(numJ/2))])
+        syl = ' '.join([phrase] * (pC-1)) + ' dha ' + pauseD + ' ' + pauseR
+        sylP = ' '.join([phrase] * (pC-1)) + ' dha ' + pauseD
+        tot = syl + ' ' + syl + ' ' + sylP
+        
+        #Split
+        res = tot.split()
+        for i in range(len(res)):
+            if (i+1) % numJ == 0:
+                res[i] = res[i] + '  '
+        rTot = ' '.join(res)
+        print(rTot)
+    
+def tihaiPrint():
+    beats = input('How many beats are in your taal?')
+    jati = input('How many syllables per beat in your jati?')
+    phrase = input('What is your phrase? (Must have same number of syllables as jati count!)')
+    tihaiMaker(int(beats), int(jati), phrase)
+    
+tihaiPrint()
