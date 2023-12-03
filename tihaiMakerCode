@@ -25,6 +25,6 @@ def tihaiPrint():
     beats = input('How many beats are in your taal?')
     jati = input('How many syllables per beat in your jati?')
     phrase = input('What is your phrase? (Must have same number of syllables as jati count!)')
-    tihaiMaker(int(beats), int(jati), phrase)
+    tihaiCalc(int(beats), int(jati), phrase)
     
 tihaiPrint()
